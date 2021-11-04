@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
     //this function runs the model on the image
     var output = await Tflite.runModelOnImage(
       path: image.path,
-      numResults: 36, //the amout of categories our neural network can predict
+      numResults: 2,
       threshold: 0.5,
       imageMean: 127.5,
       imageStd: 127.5,
@@ -79,7 +79,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text(
-          'Fruits and Veggies Neural Network',
+          'Facemask Neural Network',
           style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w200,
@@ -124,7 +124,7 @@ class _HomeState extends State<Home> {
                               ),
                               _output != null
                                   ? Text(
-                                      'The object is: ${_output[0]['label']}!',
+                                      'Status: ${_output[0]['label']}',
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 18,
@@ -173,7 +173,7 @@ class _HomeState extends State<Home> {
                             color: Colors.blueGrey[600],
                             borderRadius: BorderRadius.circular(15)),
                         child: Text(
-                          'Pick From Gallery',
+                          'Upload A Picture',
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       ),
